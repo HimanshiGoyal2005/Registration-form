@@ -1,0 +1,15 @@
+<!-- tablesapp/templates/home.html -->
+{% load static %}
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'tablesapp/styles.css' %}" />
+  </head>
+  <body>
+    <h2>Welcome to the Registration System</h2>
+    <p><a href="{% url 'register' %}">Go to Registration</a></p>
+    <a href="{% url 'registration_list' %}">
+      <button class="button">View Registrations</button>
+    </a>
+  </body>
+</html>

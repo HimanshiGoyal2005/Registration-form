@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Delete Registration</title>
+       <link rel="stylesheet" href="{% static 'tablesapp/styles.css' %}">
+</head>
+<body>
+    <h1>Are you sure you want to delete the registration of {{ registration.name }}?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'registration_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

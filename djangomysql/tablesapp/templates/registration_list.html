@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Registration List</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+        <link rel="stylesheet" href="{% static 'tablesapp/styles.css' %}">
+</head>
+<body>
+    <h1>Registration List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Semester</th>
+                <th>Contact Number</th>
+                <th>Email ID</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registration in registrations %}
+                <tr>
+                    <td>{{ registration.id }}</td>
+                    <td>{{ registration.name }}</td>
+                    <td>{{ registration.course }}</td>
+                    <td>{{ registration.semester }}</td>
+                    <td>{{ registration.contact_number }}</td>
+                    <td>{{ registration.email_id }}</td>
+                    <td>{{ registration.address }}</td>
+                      <td>
+                        <a href="{% url 'update_registration' registration.id %}">Edit</a>&nbsp;&nbsp;
+                        <form action="{% url 'delete_registration' registration.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" style="font-size:14px; border: none; background: none; cursor: pointer;">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </form></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

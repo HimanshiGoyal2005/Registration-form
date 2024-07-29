@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Update Registration</title>
+    <link rel="stylesheet" href="{% static 'tablesapp/styles.css' %}">
+</head>
+<body>
+    <h1>Update Registration</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Updated</button>
+    </form>
+    <a href="{% url 'registration_list' %}">Cancel</a>
+</body>
+</html>

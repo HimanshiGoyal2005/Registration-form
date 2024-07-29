@@ -1,0 +1,16 @@
+<!-- tablesapp/templates/register.html -->
+{% load static %}
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="{% static 'tablesapp/styles.css' %}">
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
